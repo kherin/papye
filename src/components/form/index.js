@@ -78,7 +78,7 @@ export default function InputForm() {
 
 function constructFormItem({ name, label }) {
   return (
-    <Form.Item name={name} label={label}>
+    <Form.Item key={name} name={name} label={label}>
       <Input />
     </Form.Item>
   );

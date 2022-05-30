@@ -5,11 +5,7 @@
   border-style: dashed;
 }
 
-.uploader-container:hover {
-  cursor: pointer;
-}
-
-.upload-controls {
+.upload-ready-section, .recognize-in-progress-section {
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -20,4 +16,14 @@
 .upload-button {
   background-color: #980f5a;
   border-color: #980f5a;
+}
+
+.image-preview {
+  width: 100%;
+  height: auto;
+}
+
+.upload-complete-section {
+  display: flex;
+  flex-direction: column;
 }
