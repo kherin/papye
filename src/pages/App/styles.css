@@ -1,3 +1,6 @@
+@import "~antd/dist/antd.css";
+@import "../../shared/theme/theme.css";
+
 .container {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -5,7 +8,18 @@
 }
 
 .container-item-1 {
+  padding: 3em;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
+  background-color: var(--main-bg-color);
 }
 
 .container-item-2 {
+  padding: 3em;
+  background-color: var(--light-grey);
+}
+
+.form-card {
+  border-radius: 1em;
 }

@@ -1,15 +1,24 @@
 import "./styles.css";
 
+// custom
 import Form from "@Components/form";
 import Uploader from "@Components/uploader";
 
+// antd
+import { Typography, Card } from "antd";
+
 function App() {
   return (
-    <div class="container">
-      <div class="container-item-1">
-        <Form></Form>
+    <div className="container">
+      <div className="container-item-1">
+        <Typography.Title level={1} style={{ color: "white" }}>
+          Sample Form
+        </Typography.Title>
+        <Card className="form-card">
+          <Form></Form>
+        </Card>
       </div>
-      <div class="container-item-2">
+      <div className="container-item-2">
         <Uploader></Uploader>
       </div>
     </div>
