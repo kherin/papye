@@ -11,7 +11,7 @@ import Utils from "@Shared/utils";
 
 export default function RecognizeProgress({
   setCurrentMode,
-  imagePath,
+  imageObjectURL,
   setRecognitionResult,
 }) {
   const [progressPercentage, setProgressPercentage] = useState(0);
@@ -31,13 +31,15 @@ export default function RecognizeProgress({
   };
 
   const recognizeImage = async () => {
-    Recognition.read(imagePath, recognitionLogger, null)
+    Recognition.read(imageObjectURL, recognitionLogger, null)
       .then(({ data }) => {
         setRecognitionResult(data);
         setCurrentMode("RECOGNIZE_COMPLETE");
       })
       .catch((error) => {
-        console.log(`Error: ${error} while recognizing image: ${imagePath}`);
+        console.log(
+          `Error: ${error} while recognizing image: ${imageObjectURL}`
+        );
       });
   };
 
