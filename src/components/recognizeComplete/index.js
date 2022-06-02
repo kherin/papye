@@ -3,8 +3,6 @@ import React, { useEffect, useRef } from "react";
 import "./styles.css";
 
 export default function RecognizeComplete({
-  imageObjectURL,
-  setCurrentMode,
   recognitionResult,
   imageBase64String,
   uploaderDimensions,

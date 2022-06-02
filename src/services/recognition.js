@@ -1,4 +1,4 @@
-import Tesseract, { createWorker } from "tesseract.js";
+import Tesseract from "tesseract.js";
 
 async function read(imagePath, logger, collector) {
   const result = await Tesseract.recognize(imagePath, "eng", {

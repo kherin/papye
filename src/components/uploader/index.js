@@ -59,8 +59,6 @@ export default function Uploader() {
           case "RECOGNIZE_COMPLETE":
             return (
               <RecognizeComplete
-                imageObjectURL={imageObjectURL}
-                setCurrentMode={setCurrentMode}
                 recognitionResult={recognitionResult}
                 imageBase64String={imageBase64String}
                 uploaderDimensions={uploaderDimensions}
