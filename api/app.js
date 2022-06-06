@@ -1,13 +1,23 @@
-var createError = require("http-errors");
-var express = require("express");
+require("dotenv").config();
+const express = require("express");
 
+// routers
+const AuthenticationRouter = require("./routers/authentication.router");
+const RecognizeRouter = require("./routers/recognize.router");
+
+// init
 var app = express();
 
+// middleware
 app.use(express.json());
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// routes
+app.use("/auth", AuthenticationRouter);
+app.use("/recognize", RecognizeRouter);
+
+// listen
+app.listen(process.env.PORT || 3000, () => {
+  console.log("listening on port " + process.env.PORT);
 });
 
 module.exports = app;
