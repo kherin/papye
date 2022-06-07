@@ -2,12 +2,16 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
+// shared
+const { FILE_TYPE } = require("../shared/enums");
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + ".jpeg");
+    const filename = `${Date.now()}.${FILE_TYPE.PDF}`;
+    cb(null, filename);
   },
 });
 

@@ -11,10 +11,8 @@ const formRecognizerClient = new FormRecognizerClient(
 
 const READ = (req, res, next) => {
   const { path: filePath } = req.file;
-  console.log("Filepath is: ", filePath);
   try {
     recognize(filePath).then((response) => {
-      console.log("response: ", response);
       res.status(200);
       res.send(response);
     });
