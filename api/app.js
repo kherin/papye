@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 
 // routers
 const AuthenticationRouter = require("./routers/authentication.router");
@@ -9,6 +10,7 @@ const RecognizeRouter = require("./routers/recognize.router");
 var app = express();
 
 // middleware
+app.use(cors());
 app.use(express.json());
 
 // routes

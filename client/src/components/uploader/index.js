@@ -9,10 +9,11 @@ import RecognizeComplete from "@Components/recognizeComplete";
 //styles
 import "./styles.css";
 
-export default function Uploader() {
+export default function Uploader({ form }) {
   const [imageObjectURL, setImageObjectURL] = useState("");
   const [imageBase64String, setImageBase64String] = useState("");
   const [currentMode, setCurrentMode] = useState("UPLOAD_READY");
+  const [uploadFormData, setUploadFormData] = useState({});
   const [recognitionResult, setRecognitionResult] = useState({});
   const [uploaderDimensions, setUploaderDimensions] = useState({
     height: 0,
@@ -45,6 +46,7 @@ export default function Uploader() {
               <UploadReady
                 setCurrentMode={setCurrentMode}
                 setImageObjectURL={setImageObjectURL}
+                setUploadFormData={setUploadFormData}
                 setImageBase64String={setImageBase64String}
               />
             );
@@ -52,6 +54,7 @@ export default function Uploader() {
             return (
               <RecognizeProgress
                 imageObjectURL={imageObjectURL}
+                uploadFormData={uploadFormData}
                 setCurrentMode={setCurrentMode}
                 setRecognitionResult={setRecognitionResult}
               />
@@ -67,8 +70,10 @@ export default function Uploader() {
           case "UPLOAD_COMPLETE":
             return (
               <UploadComplete
+                form={form}
                 imageObjectURL={imageObjectURL}
                 setCurrentMode={setCurrentMode}
+                recognitionResult={recognitionResult}
                 onClickDeleteButton={onClickDeleteButton}
               />
             );

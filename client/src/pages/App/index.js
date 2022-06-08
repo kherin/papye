@@ -1,13 +1,14 @@
 import "./styles.css";
 
 // custom
-import Form from "@Components/form";
+import InputForm from "@Components/form";
 import Uploader from "@Components/uploader";
 
 // antd
-import { Typography, Card } from "antd";
+import { Typography, Card, Form } from "antd";
 
 function App() {
+  const [form] = Form.useForm();
   return (
     <div className="container">
       <div className="container-item-1">
@@ -15,11 +16,11 @@ function App() {
           Sample Form
         </Typography.Title>
         <Card className="form-card">
-          <Form></Form>
+          <InputForm form={form}></InputForm>
         </Card>
       </div>
       <div className="container-item-2">
-        <Uploader></Uploader>
+        <Uploader form={form}></Uploader>
       </div>
     </div>
   );

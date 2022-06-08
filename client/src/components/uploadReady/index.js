@@ -8,6 +8,7 @@ export default function UploadReady({
   setImageObjectURL,
   setCurrentMode,
   setImageBase64String,
+  setUploadFormData,
 }) {
   const transformToBase65String = (file) => {
     const fileReader = new FileReader();
@@ -24,8 +25,13 @@ export default function UploadReady({
   };
   const onClickUploadButton = (event) => {
     try {
+      const selectedFile = event.target.files[0];
       const currentImagePath = URL.createObjectURL(event.target.files[0]);
 
+      const formData = new FormData();
+      formData.append("form", selectedFile);
+
+      setUploadFormData(formData);
       setImageObjectURL(currentImagePath);
       transformToBase65String(event.target.files[0]);
 

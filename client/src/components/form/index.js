@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, Input } from "antd";
+import { Form, Input, Checkbox } from "antd";
+import { fieldsConfig } from "@Shared/config";
 
 const formItemLayout = {
   labelCol: {
@@ -20,66 +21,31 @@ const formItemLayout = {
   },
 };
 
-const fieldsConfig = [
-  {
-    name: "roll_no",
-    label: "Roll No.",
-  },
-  {
-    name: "first_name",
-    label: "First Name",
-  },
-  {
-    name: "middle_name",
-    label: "Middle Name",
-  },
-  {
-    name: "last_name",
-    label: "Last Name",
-  },
-  {
-    name: "date_of_birth",
-    label: "Date Of Birth",
-  },
-  {
-    name: "age",
-    label: "Age",
-  },
-  {
-    name: "adhar_no",
-    label: "Adhar No.",
-  },
-  {
-    name: "mobile_number",
-    label: "Mobile Number",
-  },
-  {
-    name: "address",
-    label: "Address",
-  },
-  {
-    name: "pin_code",
-    label: "Pin Code",
-  },
-  {
-    name: "city",
-    label: "City",
-  },
-];
-
-export default function InputForm() {
-  const [form] = Form.useForm();
+export default function InputForm({ form }) {
   return (
     <Form {...formItemLayout} form={form} name="sample_form">
-      {fieldsConfig.map((name, label) => constructFormItem(name, label))}
+      {fieldsConfig.map((name, label, type) =>
+        constructFormItem(name, label, type)
+      )}
     </Form>
   );
 }
 
-function constructFormItem({ name, label }) {
+function constructFormItem({ name, label, type }) {
   return (
     <Form.Item key={name} name={name} label={label}>
-      <Input />
+      {(() => {
+        switch (type) {
+          case "input_text":
+            return <Input />;
+          case "input_label":
+            return <span>{label}</span>;
+          case "input_checkbox":
+            return <Checkbox checked={false} />;
+          default:
+            return <span>{label}</span>;
+        }
+      })()}
     </Form.Item>
   );
 }

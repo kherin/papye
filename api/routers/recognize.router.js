@@ -10,7 +10,7 @@ var storage = multer.diskStorage({
     cb(null, "uploads/");
   },
   filename: function (req, file, cb) {
-    const filename = `${Date.now()}.${FILE_TYPE.PDF}`;
+    const filename = `${Date.now()}.${FILE_TYPE.PNG}`;
     cb(null, filename);
   },
 });
