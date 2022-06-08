@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+// Shared
+import { fieldsConfig } from "@Shared/config";
 
 // custom
 import UploadReady from "@Components/uploadReady";
@@ -35,6 +37,18 @@ export default function Uploader({ form }) {
   const onClickDeleteButton = () => {
     setCurrentMode("UPLOAD_READY");
     setImageObjectURL("");
+    // clearAllFields();
+  };
+
+  const clearAllFields = () => {
+    if (fieldsConfig && fieldsConfig.length) {
+      for (const fieldConfig of fieldsConfig) {
+        const { name } = fieldConfig;
+        form.setFieldsValue({
+          [name]: "",
+        });
+      }
+    }
   };
 
   return (

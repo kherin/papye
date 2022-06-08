@@ -22,10 +22,15 @@ export default function UploadComplete({
     for (let fieldConfig of fieldsConfig) {
       const { name, label } = fieldConfig;
       const bestFieldMatch = findBestMatch(label, keyValuePairs);
-      const { value } = bestFieldMatch;
-      form.setFieldsValue({
-        [name]: value["content"],
-      });
+      if (bestFieldMatch) {
+        const { value } = bestFieldMatch;
+
+        if (value && value["content"]) {
+          form.setFieldsValue({
+            [name]: value["content"],
+          });
+        }
+      }
     }
   }, []);
 

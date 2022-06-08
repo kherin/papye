@@ -2,6 +2,9 @@ import React from "react";
 import { Form, Input, Checkbox } from "antd";
 import { fieldsConfig } from "@Shared/config";
 
+// styles
+import "./styles.css";
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -37,7 +40,7 @@ function constructFormItem({ name, label, type }) {
       {(() => {
         switch (type) {
           case "input_text":
-            return <Input />;
+            return <Input key={name} />;
           case "input_label":
             return <span>{label}</span>;
           case "input_checkbox":
