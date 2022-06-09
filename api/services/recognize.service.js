@@ -1,5 +1,4 @@
 const {
-  FormRecognizerClient,
   DocumentAnalysisClient,
   AzureKeyCredential,
 } = require("@azure/ai-form-recognizer-beta");
@@ -12,7 +11,7 @@ const documentAnalysisClient = new DocumentAnalysisClient(
   new AzureKeyCredential(key)
 );
 
-const READ = (req, res, next) => {
+const READ = (req, res, _) => {
   const { path: filePath } = req.file;
   try {
     recognize(filePath)

@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 
 // routers
-const AuthenticationRouter = require("./routers/authentication.router");
 const RecognizeRouter = require("./routers/recognize.router");
 
 // init
@@ -14,7 +13,6 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.use("/auth", AuthenticationRouter);
 app.use("/recognize", RecognizeRouter);
 
 // listen

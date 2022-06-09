@@ -1,6 +1,5 @@
 const UPLOAD = (req, res, next) => {
   if (req.file) {
-    const { path: filePath } = req.file;
     next();
   } else {
     console.error("Error: file is empty");
